@@ -38,7 +38,7 @@ const About: React.FC = () => {
                         Contacts.map((contact, index) => {
                             return (
                                 <li key={index}>
-                                    <Image src={contact.icon} alt='social network...'/>
+                                    <Image className={styles.netImg} src={contact.icon} alt='social network...'/>
                                 </li>
                             )
                         })

@@ -21,11 +21,11 @@
     justify-content: center;
     gap: 40px;
 }
-img {
+img.netImg {
     filter: grayscale(1);
     transition: filter .5s ease;
     cursor: pointer;
 }
-img:hover {
+img.netImg:hover {
     filter: grayscale(0);
 }
