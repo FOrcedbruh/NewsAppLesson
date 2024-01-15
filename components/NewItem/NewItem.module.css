@@ -1,0 +1,21 @@
+.new {
+    width: 60%;
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-bottom: 2px solid #8a8a8a;
+}
+.new:last-child {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom: none;
+}
+.new:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.new h4 {
+    color: #fff;
+}
+.new p {
+    color: #8a8a8a;
+}
