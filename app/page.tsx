@@ -1,37 +1,35 @@
-"use client"
 import styles from './page.module.css';
 import NewItem from '@/components/NewItem/NewItem';
 import NewsType from './types/NewsType';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 
 
 const src: string = "https://newsapi.org/v2/top-headlines?country=ru&apiKey=132ce395103c431abcb3e863d41dbe3f"
 
 
+export const getNews = async () => {
+  const res = await fetch(src);
+  const news = await res.json();
 
 
-const MainPage: React.FC =  () =>  {
+  return news.articles
+}
 
-  const [news, setNews] = useState<NewsType[]>([]);
-  
 
-  useEffect(() => {
-    axios.get(src).then(res => {
-      setNews(res.data.articles);
-    })
-  }, []);
+const MainPage: React.FC = async () =>  {
+
+
+  const data: NewsType[] = await getNews();
+
+
 
   return (
     <section className={styles.window}>
       <div className={styles.news}>
-        {
-          news.map((el, index) => {
-            return (
-              <NewItem key={index} article={el}/>
-            )
-          })
-        }
+       {data.map((e, index) => {
+        return (
+          <NewItem key={index} article={e}/>
+        )
+       })}
       </div>
     </section>
   )
